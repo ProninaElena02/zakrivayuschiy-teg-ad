@@ -10,7 +10,437 @@
 
 */
 
+
 .page {
-  min-inline-size: 320px;
-  min-block-size: 100dvb;
+
+    font-family: var(--main-font);
+    /* вареативный шрифт */
+    font-variation-settings: "wght" var(--text-weight);
+    font-size: var(--font-size);
+    /* мб эти два свойства не надо */
+    /* min-inline-size: 320px; */
+    min-block-size: 100dvb;
+    background-image: var(--background-image);
+    background-size: cover;
+    background-position: center;
+    /* фиксируем фон */
+    background-attachment: fixed;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* ширину селекторам main и header */
+    width: var(--page-width);
+}
+
+
+
+.header {
+
+  /* Секция резиновая по ширине, используйте clamp или относительные единицы, а на мобильном устройстве — растяните секцию на всю ширину. Для реализации этой ширины удобно внедрить дополнительный класс, а размер вынести в переменную. */
+
+  /* должен занимать весь объём коробки */
+    width: 100%;
+
+  font-family: var(--accent-font);
+  font-weight: var(--text-weight);
+  text-transform: uppercase;
+  display: flex;
+
+  /* помним что эти всегда в паре */
+  justify-content: center;
+  align-items: center;
+
+  flex-direction: column;
+  outline: 2px solid var(--color);
+  background-color: var(--background-color);
+
+  /* низу и верху дали эти отступы */
+  padding-block: 128px;
+  margin-block: 103px;
+}
+
+
+.header_title {
+  /* вынести в переменную. */
+  font-size: var(--header-title-font-size);
+  font-weight: var(--text-weight);
+  line-height: 100%;
+
+  /* мы эти штуки используем для...адаптива для японцев, чтобы в нужном месте отступ был */
+  margin-block-end: 20px;
+}
+
+.header_text {
+  font-size: var(--header-text-font-size);
+}
+
+.main {
+  /* или гридом это можно сдделать */
+  /* display: grid;
+  justify-items: center; */
+
+  /* там ещё от низа кнопки надо отступить */
+  margin-block-end: 103px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.card_section {
+  /* рамочка */
+  outline: 2px solid var(--color);
+
+  width: 100%;
+  background-color: white;
+
+  /* вроде такое расстояние между карточками */
+  margin-bottom: 50px;
+}
+
+/* это если мы постучимся к последней карточке чтобы правильно отодвинуть кнопку,, но вроде и так нормально */
+
+/* .section:last-of-type {
+  margin-bottom: ;
+} */
+
+.section_title {
+  padding: 5px 10px;
+  font-variation-settings: "wght" var(--title-weight);
+  color: var(--color);
+  /* background-color:  white; */
+  font-size: var(--font-size);
+}
+
+.section_image_box {
+  /* нам ватермарку двигать нужно */
+  position: relative;
+
+  /* вот это немного выравнивает низ */
+  /* margin: 0px 0px 5px 0px; */
+
+  /* вот это вообще подгонка для перфект пикселя */
+  /* outline: var(--main-border); */
+}
+
+.card_label {
+  position: absolute;
+  /* вот так сдвинута от верха и права */
+  top: 25px;
+  right: 25px;
+
+  font-family: var(--accent-font);
+  font-weight: var(--text-weight);
+  font-size: 14px;
+
+  /* Цвет обводки храните в отдельной переменной. */
+  text-shadow: 0 0 1px var(--shadow-color);
+
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+
+.section_image {
+  display: block;
+/* 
+  object-fit: cover;
+  object-position: center;
+  inline-size: 100%;
+  max-block-size: 100%; */
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.section_info {
+  /* вот этим падингом мы двигаем от края карточки */
+  padding: 26px 24px 25px 26px;
+
+  /* background-color: var(--background-color); */
+  display: flex;
+  flex-direction: column;
+}
+
+.section_text:not(:last-of-type) {
+  margin-block-end: 27px;
+}
+
+.section_text:last-of-type {
+  margin-block-end: 25px;
+}
+
+/* фильтры */
+
+.filter_brightness {
+  filter: brightness(50%);
+}
+
+
+
+
+.filter_sepia {
+  filter: sepia(95%);
+}
+
+.filter_invert {
+  filter: invert(0.2);
+}
+
+.filter_grayscale {
+  filter: grayscale(2.0);
+}
+
+.filter_blur {
+  filter: blur(0.3rem);
+}
+
+.filter_hue-rotate {
+  filter: hue-rotate(-25deg);
+}
+
+.filter_sep_and_hue {
+  filter: sepia(70%) hue-rotate(-20deg) brightness(120%);
+
+}
+
+
+/* кнопка - которая в карточке и которая описывает блок кнопки с сердешком  */
+.button_block {
+  display: flex;
+  align-self: end;
+  gap: 11px;
+}
+
+/* скрыть иcкры через opacity в CSS. */
+.sparks {
+  opacity: 0;
+}
+
+
+.card__icon-button {
+  height: 34px;
+  display: flex;
+  background-color: transparent;
+  border: none;
+
+  outline: 2px solid transparent;
+  /* Граница должна появляться плавно */
+  transition: outline 0.3s ease;
+
+  align-self: center;
+  padding-inline: 0;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid var(--color);
+}
+
+
+.card__like-button {
+  padding-block: 8px;
+  
+  /* align-self: end; */
+  width: 130px;
+}
+
+
+
+.decorated_button {
+  align-items: center;
+  background-color: white;
+  border: 2px solid var(--color);
+  color: white;
+  /* наведение мышкой */
+  cursor: pointer;
+  font-family: var(--accent-font);
+  justify-content: center;
+
+  /* для нашего псевдо элемента */
+  overflow: hidden;
+  position: relative;
+  /* тень */
+  transition: box-shadow 0.3s ease;
+}
+
+/* псевдоэлемент начнёт «наезжать» своим чёрным фоном */
+.decorated_button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* мы двигаем этот фо */
+  background: var(--color);
+  /* через translate от -100% по оси X до 0. В этом случае кнопке придётся задать overflow. */
+  transition: translate 0.5s ease-in-out;
+  translate: -100%;
+}
+
+.decorated_button_text {
+  font-size: var(--button-font-size);
+  /* якобы помогает */
+  /* режим смешивания difference вычисляет разницу между цветом элемента и цветом фона. Если цвет элемента и фона одинаковы, 
+  результат будет чёрным. Если цвета противоположны (например, белый и чёрный), то результат будет белым. */
+  mix-blend-mode: difference;
+  margin-right: 5px;
+}
+
+/* это на дискету */
+/* если будет ругать автотест нужно вынести в один класс */
+.svg_difference {
+  fill: white;
+  color: #fff;
+  background-color: transparent;
+  mix-blend-mode: difference;
+}
+
+
+
+
+/* оно не работает */
+.decorated_button:focus-visible {
+  outline: 2px solid var(--color);
+}
+
+/* тень при фокусе */
+.decorated_button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 1px var(--color);
+}
+
+/* двигаем псевдо элемент */
+.decorated_button:hover::before {
+  translate: 0%;
+}
+
+
+
+.floppy_svg {
+  width: 21px;
+  height: 21px;
+}
+
+.dialog_floppy_svg {
+  width: 39px;
+  height: 39px;
+}
+
+/* в этом контейнере текст сохранить на память и дискетка */
+.save_button {
+  width: 335px;
+  min-height: 55px;
+  gap: 8px;
+  display: flex;
+}
+
+
+.floppy_dialog[open] {
+
+  flex-shrink: 0;
+  border: var(--main-border);
+  padding: 30px;
+
+  inline-size: 354px;
+}
+
+
+/* всё немного затемниться */
+.floppy_dialog[open]::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+}
+
+/* и запрещаем двигать */
+body:has(.floppy_dialog[open]) {
+  overflow: hidden;
+}
+
+/* коробка для дискеты  и текста */
+.dialog_description {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 30px;
+  padding-top: 5px;
+}
+
+/* кнопка ОК */
+.dialog_button {
+  inline-size: 100%;
+  min-block-size: 38px;
+}
+
+.dialog_label {
+  align-self: flex-start;
+  font-family: var(--accent-font);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+
+
+@supports (
+  (text-stroke: 1px var(--shadow-color)) or
+    (-webkit-text-stroke: 1px var(--shadow-color))) {
+  .card_label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--shadow-color);
+    text-stroke: 1px var(--shadow-color);
+  }
+}
+
+
+
+@media (width <= 375px) {
+
+  .main,
+  .header,
+  .footer {
+    width: 100%;
+  }
+
+  .header {
+    margin-top: 27vw;
+    margin-bottom: 28vw;
+    block-size: 325px;
+  }
+
+  .header_title {
+    line-height: 49px;
+    letter-spacing: normal;
+  }
+
+  .article_info {
+    padding: 20px 27px 25px 27px;
+  }
+
+  .card_label {
+    top: 20px;
+    right: 10px;
+  }
+
+  .save_button {
+    flex-direction: column;
+    width: 312px;
+    height: 84px;
+    margin: 0;
+    gap: 4px;
+  }
+
+  .floppy_svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .decorated_button_text {
+    margin-right: 2px;
+    margin-bottom: 4px;
+  }
 }

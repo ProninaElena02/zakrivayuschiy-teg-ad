@@ -9,3 +9,108 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
+
+Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
+✦ like-icon — для svg-иконки анимированного сердца
+✦ card__like-button — для кнопки Like рядом с иконкой
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ card__icon-button — для кнопки, оборачивающей иконку
+✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
+✦ button__text — для обозначения текстового элемента внутри кнопки
+
+*/
+
+@keyframes like {
+    from {
+      scale: 1;
+    }
+    to {
+      scale: 1.25;
+    }
+}
+  
+@keyframes sparks {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+
+.card__icon-button .core {
+    fill: transparent;
+    /* c задержкой когда обратно */
+    transition: fill 0.3s ease 0.03s;
+}
+
+.button_heart .main-body {
+    fill: transparent;
+    transition: fill 0.3s ease;
+  }
+
+/* hover тут она наполняется тёмным цветом от ядра */
+.card__icon-button:hover .core {
+    fill: var(--heart-main-color);
+    transition: fill 0.3s ease;
+}
+
+.card__icon-button:hover .main-body {
+    fill: var(--heart-main-color);
+    transition: fill 0.3s ease 0.05s;
+}
+
+
+/* когда тыкнули */
+
+
+.card__icon-button:active .core {
+    fill: var(--heart-red-color);
+    transition: fill 0.3s ease;
+}
+
+.card__icon-button:active .main-body {
+    fill: var(--heart-red-color);
+    transition: fill 0.3s ease 0.05s;
+}
+
+
+/* после лайка */
+
+
+ /* Абсолютно те же параметры, что и при состоянии active.  */
+.card__icon-button .is-liked .core {
+    fill: var(--heart-red-color);
+    transition: fill 0.3s linear;
+}
+
+
+.card__icon-button .is-liked .main-body {
+    fill: var(--heart-red-color);
+    transition: fill 0.3s linear 0.05s;
+}
+
+
+/* После этого с небольшой задержкой в 0.06s перекрашивайте контур. */
+.card__icon-button .is-liked .contour {
+    fill: var(--heart-red-color);
+    transition: fill 0.3s linear 0.06s;
+}
+
+/* 1 раз оно увеличится и появятся звезды */
+.card__icon-button .is-liked {
+    animation: like  0.3s ease-in 0.1s 1;
+    transform-origin: center;
+}
+  
+.card__icon-button .is-liked .sparks {
+    animation: sparks 0.3s ease-in  0.3s 1;
+}
+
+/* заливка медленная у рамки */
+.card__icon-button:focus-visible {
+    outline-color: black;
+    transition:  outline-color 0.3s linear;
+}
