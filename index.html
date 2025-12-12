@@ -459,38 +459,36 @@
 
       <!-- Нижняя кнопка с дискетой по такому айди будет отрыт диалог -->
       <button class="save_button decorated_button" type="button" 
-        onclick="window['floppy_dialog'].showModal()" 
-        aria-controls="floppy_dialog">
+              onclick="window['floppy_dialog'].showModal()" 
+              aria-controls="floppy_dialog">
         <!-- дискета -->
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" class="mix_difference floppy_svg">
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 39 39" 
+            class="mix_difference floppy_svg"
+            width="21" height="21">
           <use href="./svg/floppy.svg#floppy"></use>
         </svg>
-        <!-- текст  -->
+        <!-- текст -->
         <span class="decorated_button_text">Сохранить на память</span>
       </button>
 
-    </main>
-
-    <!-- окно диалога -->
-    <dialog id="floppy_dialog" class="floppy_dialog">
-
-      <div class="dialog_description">
-
-        <svg xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 44 44"
-          class="dialog_floppy_svg">
-          <use href="./svg/floppy.svg#floppy"></use>
-        </svg>
-        <p class="dialog_label">Вставьте <br>  дискету, чтобы продолжить</p>
-
-      </div>
-      <!-- он будет закрываться при нажатии на кнопку то есть при отправке формы окно закрывается-->
-       <button type="button" class="dialog_button decorated_button" 
-          onclick="this.closest('dialog').close()">
+        <!-- окно диалога -->
+      <dialog id="floppy_dialog" class="floppy_dialog">
+        <div class="dialog_description">
+          <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 39 39"
+              class="dialog_floppy_svg"
+              width="39" height="39">
+            <use href="./svg/floppy.svg#floppy"></use>
+          </svg>
+          <p class="dialog_label">Вставьте<br>дискету,&nbsp;чтобы<br>продолжить</p>
+        </div>
+        
+        <button type="button" class="dialog_button decorated_button" 
+                onclick="this.closest('dialog').close()">
           <span class="decorated_button_text">OK</span>
         </button>
-    </dialog>
-
+      </dialog>
     <script src="./scripts/like.js"></script>
   </body>
 </html>
