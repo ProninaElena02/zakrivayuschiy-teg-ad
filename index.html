@@ -460,8 +460,8 @@
 
     <!-- Нижняя кнопка с дискетой по такому айди будет отрыт диалог -->
     <button class="save_button decorated_button" type="button" 
-            onclick="window['floppy_dialog'].showModal()" 
-            aria-controls="floppy_dialog">
+        onclick="event.preventDefault(); window['floppy_dialog'].showModal(); return false;" 
+        aria-controls="floppy_dialog">
       <!-- дискета -->
       <svg xmlns="http://www.w3.org/2000/svg" 
           viewBox="0 0 39 39" 
@@ -486,10 +486,10 @@
       </div>
       
        
-      <button type="button" class="dialog_button decorated_button" 
-              onclick="window['floppy_dialog'].close()">
+     <button type="button" class="dialog_button decorated_button" 
+        onclick="event.preventDefault(); this.closest('dialog').close(); return false;">
         <span class="decorated_button_text">OK</span>
-      </button>
+    </button>
     </dialog>
     <script src="./scripts/like.js"></script>
   </body>
