@@ -15,12 +15,12 @@
 
     font-family: var(--main-font);
     /* вареативный шрифт */
-    font-variation-settings: "wght" var(--text-weight);
+    font-variation-settings: "wght" var(--text-w);
     font-size: var(--font-size);
     /* мб эти два свойства не надо */
     /* min-inline-size: 320px; */
     min-block-size: 100dvb;
-    background-image: var(--background-image);
+    background-image: var(--bg-image);
     background-size: cover;
     background-position: center;
     /* фиксируем фон */
@@ -43,7 +43,7 @@
     width: 100%;
 
   font-family: var(--accent-font);
-  font-weight: var(--text-weight);
+  font-weight: var(--text-w);
   text-transform: uppercase;
   display: flex;
 
@@ -63,8 +63,8 @@
 
 .header_title {
   /* вынести в переменную. */
-  font-size: var(--header-title-font-size);
-  font-weight: var(--text-weight);
+  font-size: var(--header-title-size);
+  font-weight: var(--text-w);
   line-height: 100%;
 
   /* мы эти штуки используем для...адаптива для японцев, чтобы в нужном месте отступ был */
@@ -72,7 +72,7 @@
 }
 
 .header_text {
-  font-size: var(--header-text-font-size);
+  font-size: var(--header-text-size);
 }
 
 .main {
@@ -108,7 +108,7 @@
 
 .section_title {
   padding: 5px 10px;
-  font-variation-settings: "wght" var(--title-weight);
+  font-variation-settings: "wght" var(--title-w);
   color: var(--color);
   /* background-color:  white; */
   font-size: var(--font-size);
@@ -122,7 +122,7 @@
   /* margin: 0px 0px 5px 0px; */
 
   /* вот это вообще подгонка для перфект пикселя */
-  /* outline: var(--main-border); */
+  /* outline: var(--border); */
 }
 
 .card_label {
@@ -132,7 +132,7 @@
   right: 25px;
 
   font-family: var(--accent-font);
-  font-weight: var(--text-weight);
+  font-weight: var(--text-w);
   font-size: 14px;
 
   /* Цвет обводки храните в отдельной переменной. */
